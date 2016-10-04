@@ -27,12 +27,36 @@ class QueensTest < Minitest::Test
       Queens.new(white: [2, 4], black: [2, 4])
     end
   end
-  
+
   def test_rank_and_file_use_0_based_indexing
     skip
     queens = Queens.new(white: [0, 0], black: [0, 1])  
     assert_equal [0, 0], queens.white
     assert_equal [0, 1], queens.black
+  end
+
+  def test_queens_must_have_a_positive_rank
+    skip
+    assert_raises ArgumentError { Queens.new(white: [-1, 4], black: [ 2, 4]) }
+    assert_raises ArgumentError { Queens.new(white: [ 2, 4], black: [-1, 4]) }
+  end
+
+  def test_queens_must_have_a_positive_file
+    skip
+    assert_raises ArgumentError { Queens.new(white: [4, -1], black: [4,  2]) }
+    assert_raises ArgumentError { Queens.new(white: [4,  2], black: [4, -1]) }
+  end
+
+  def test_queen_rank_does_not_exceed_board_size
+    skip
+    assert_raises ArgumentError { Queens.new(white: [ 8, 4], black: [ 2, 4]) }
+    assert_raises ArgumentError { Queens.new(white: [ 2, 4], black: [ 8, 4]) }
+  end
+
+  def test_queen_file_does_not_exceed_board_size
+    skip
+    assert_raises ArgumentError { Queens.new(white: [2, 8], black: [2, 4]) }
+    assert_raises ArgumentError { Queens.new(white: [2, 4], black: [2, 8]) }
   end
 
   def test_string_representation # rubocop:disable Metrics/MethodLength
