@@ -4,12 +4,6 @@ require 'minitest/autorun'
 require_relative 'queen_attack'
 
 class QueensTest < Minitest::Test
-  def test_default_positions
-    queens = Queens.new
-    assert_equal [0, 3], queens.white
-    assert_equal [7, 3], queens.black
-  end
-
   def test_specific_placement
     skip
     queens = Queens.new(white: [3, 7], black: [6, 1])
