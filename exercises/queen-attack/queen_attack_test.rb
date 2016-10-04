@@ -23,20 +23,20 @@ class QueensTest < Minitest::Test
 
   def test_queens_must_have_a_positive_rank
     skip
-    assert_raises ArgumentError { Queens.new(white: [-1, 4], black: [ 2, 4]) }
-    assert_raises ArgumentError { Queens.new(white: [ 2, 4], black: [-1, 4]) }
+    assert_raises ArgumentError { Queens.new(white: [-1, 4], black: [2, 4]) }
+    assert_raises ArgumentError { Queens.new(white: [2, 4], black: [-1, 4]) }
   end
 
   def test_queens_must_have_a_positive_file
     skip
-    assert_raises ArgumentError { Queens.new(white: [4, -1], black: [4,  2]) }
-    assert_raises ArgumentError { Queens.new(white: [4,  2], black: [4, -1]) }
+    assert_raises ArgumentError { Queens.new(white: [4, -1], black: [4, 2]) }
+    assert_raises ArgumentError { Queens.new(white: [4, 2], black: [4, -1]) }
   end
 
   def test_queen_ranks_do_not_exceed_board_size
     skip
-    assert_raises ArgumentError { Queens.new(white: [ 8, 4], black: [ 2, 4]) }
-    assert_raises ArgumentError { Queens.new(white: [ 2, 4], black: [ 8, 4]) }
+    assert_raises ArgumentError { Queens.new(white: [8, 4], black: [2, 4]) }
+    assert_raises ArgumentError { Queens.new(white: [2, 4], black: [8, 4]) }
   end
 
   def test_queen_files_do_not_exceed_board_size
