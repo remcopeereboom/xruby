@@ -33,13 +33,13 @@ class QueensTest < Minitest::Test
     assert_raises ArgumentError { Queens.new(white: [4,  2], black: [4, -1]) }
   end
 
-  def test_queen_rank_does_not_exceed_board_size
+  def test_queen_ranks_do_not_exceed_board_size
     skip
     assert_raises ArgumentError { Queens.new(white: [ 8, 4], black: [ 2, 4]) }
     assert_raises ArgumentError { Queens.new(white: [ 2, 4], black: [ 8, 4]) }
   end
 
-  def test_queen_file_does_not_exceed_board_size
+  def test_queen_files_do_not_exceed_board_size
     skip
     assert_raises ArgumentError { Queens.new(white: [2, 8], black: [2, 4]) }
     assert_raises ArgumentError { Queens.new(white: [2, 4], black: [2, 8]) }
