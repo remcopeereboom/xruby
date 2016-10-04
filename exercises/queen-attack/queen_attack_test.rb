@@ -27,6 +27,13 @@ class QueensTest < Minitest::Test
       Queens.new(white: [2, 4], black: [2, 4])
     end
   end
+  
+  def test_rank_and_file_use_0_based_indexing
+    skip
+    queens = Queens.new(white: [0, 0], black: [0, 1])  
+    assert_equal [0, 0], queens.white
+    assert_equal [0, 1], queens.black
+  end
 
   def test_string_representation # rubocop:disable Metrics/MethodLength
     skip
