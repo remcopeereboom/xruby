@@ -21,20 +21,6 @@ class QueensTest < Minitest::Test
     assert_equal [7, 7], queens2.black
   end
 
-  def test_cannot_occupy_same_space
-    skip
-    assert_raises ArgumentError do
-      Queens.new(white: [2, 4], black: [2, 4])
-    end
-  end
-
-  def test_rank_and_file_use_0_based_indexing
-    skip
-    queens = Queens.new(white: [0, 0], black: [0, 1])  
-    assert_equal [0, 0], queens.white
-    assert_equal [0, 1], queens.black
-  end
-
   def test_queens_must_have_a_positive_rank
     skip
     assert_raises ArgumentError { Queens.new(white: [-1, 4], black: [ 2, 4]) }
@@ -57,6 +43,11 @@ class QueensTest < Minitest::Test
     skip
     assert_raises ArgumentError { Queens.new(white: [2, 8], black: [2, 4]) }
     assert_raises ArgumentError { Queens.new(white: [2, 4], black: [2, 8]) }
+  end
+
+  def test_cannot_occupy_same_space
+    skip
+    assert_raises ArgumentError { Queens.new(white: [2, 4], black: [2, 4]) }
   end
 
   def test_string_representation # rubocop:disable Metrics/MethodLength
@@ -149,5 +140,26 @@ _ _ _ _ _ _ _ _
     skip
     queens = Queens.new(white: [6, 1], black: [1, 6])
     assert queens.attack?
+  end
+
+  # Problems in exercism evolve over time, as we find better ways to ask
+  # questions.
+  # The version number refers to the version of the problem you solved,
+  # not your solution.
+  #
+  # Define a constant named VERSION inside of the top level BookKeeping
+  # module.
+  #  In your file, it will look like this:
+  #
+  # module BookKeeping
+  #   VERSION = 1 # Where the version number matches the one in the test.
+  # end
+  #
+  # If you are curious, read more about constants on RubyDoc:
+  # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
+
+  def test_bookkeeping
+    skip
+    assert_equal 1, BookKeeping::VERSION
   end
 end
